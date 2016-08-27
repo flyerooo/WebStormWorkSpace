@@ -5,11 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form action="" name="txtName">
+<form action="" name="form1">
     Please enter the following details:
     <p>
         Name:
-        <input type="text" name="txtname">
+        <input type="text" name="txtName">
     </p>
     <p>
         Age:
@@ -40,11 +40,11 @@
         }
     }
 
-    function txtAgeblur(e) {
+    function txtAgeBlur(e) {
         var target = e.target;
 
         if (isNaN(target.value)) {
-            alert("Please enter a valid age")
+            alert("Please enter a valid age");
             target.focus();
             target.select();
         }
@@ -55,7 +55,7 @@
     }
 
     myForm.txtName.addEventListener("change", txtNameChange);
-    myForm.txtAge.addEventListener("blur",txtAgeblur);
+    myForm.txtAge.addEventListener("blur",txtAgeBlur);
     myForm.btnCheckForm.addEventListener("click", btnCheckFormClick);
 </script>
 </body>
