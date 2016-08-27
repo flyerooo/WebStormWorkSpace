@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" name="form1">
+    <input type="button" name="myButton" value="Mouse gose up">
+</form>
+
+<script>
+    var myButton = document.form1.myButton;
+
+    function myButtonMouseUp() {
+        myButton.value = "Mouse Gose Up";
+    }
+
+    function myButtonMousedown() {
+        myButton.value = "Mouse Gose Down";
+    }
+
+    myButton.addEventListener("mousedown", myButtonMousedown);
+    myButton.addEventListener("mouseup", myButtonMouseUp);
+</script>
+</body>
+</html>
