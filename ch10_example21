@@ -12,7 +12,7 @@
             float: left;
         }
 
-        .drop-enter {
+        .drag-enter {
             border:2px dashed #000;
         }
 
