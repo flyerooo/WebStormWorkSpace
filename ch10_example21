@@ -32,12 +32,13 @@
 </head>
 <body>
 <div data-drop-target="true">
-<div id="box1" draggable="true" class="box navy"></div>
-<div id="box2" draggable="true" class="box red"></div>
+    <div id="box1" draggable="true" class="box navy"></div>
+    <div id="box2" draggable="true" class="box red"></div>
 </div>
 <div data-drop-target="true"></div>
 
 <script>
+    <!--存储可拖动元素的id-->
     function handleDragStart(e) {
         e.dataTransfer.setData("text", this.id);
     }
@@ -50,13 +51,15 @@
         }
     }
 
-    function handleOverDrog(e) {
+    function handleOverDrop(e) {
         e.preventDefault();
         if (e.type != "drop") {
             return;
         }
+
         var draggedId = e.dataTransfer.getData("text");
         var draggedE1 = document.getElementById(draggedId);
+
         if (draggedE1.parentNode == this) {
             return;
         }
@@ -64,19 +67,18 @@
         this.appendChild(draggedE1);
         this.className = "";
     }
-
     var draggable = document.querySelectorAll("[draggable]");
     var targets = document.querySelectorAll("[data-drop-target]");
 
-    for (var i = 0; i < draggable.length; i++) {
-        draggable[i].addEventListener("dragstart", handleDragEnterLeave);
+    for (var i=0; i < draggable.length; i++) {
+        draggable[i].addEventListener("dragstart", handleDragStart);
     }
 
     for (i = 0; i < targets.length; i++) {
-        targets[i].addEventListener("dragover", handleOverDrog);
-        targets[i].addEventListener("drop", handleOverDrog);
-        targets[i].addEventListener("dragenter", handleDragEnterLeave);
-        targets[i].addEventListener("dragleave", handleDragEnterLeave);
+        targets[i].addEventListener("dragover",handleOverDrop);
+        targets[i].addEventListener("drop",handleOverDrop);
+        targets[i].addEventListener("dragenter",handleDragEnterLeave);
+        targets[i].addEventListener("dragleave",handleDragEnterLeave);
     }
 </script>
 </body>
