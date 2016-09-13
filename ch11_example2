@@ -7,7 +7,6 @@
 <body>
 <form action="" name="form1">
     <input type="button" name="myButton" value="Button clicked 0 times">
-    <input type="button" name="myButton" value="Button clicked 0 times">
 </form>
 <script>
     var myButton = document.form1.myButton;
